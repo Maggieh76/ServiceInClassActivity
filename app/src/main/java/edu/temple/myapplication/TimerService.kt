@@ -64,7 +64,7 @@ class TimerService : Service() {
         t.start()
     }
 
-    fun pause () {
+    fun pause (){
         if (::t.isInitialized) {
             paused = !paused
             isRunning = !paused
