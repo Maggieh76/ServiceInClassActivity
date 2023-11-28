@@ -80,7 +80,7 @@ class TimerService : Service() {
         override fun run() {
             isRunning = true
             try {
-                for (i in startValue downTo 1)  {
+                for (i in startValue downTo 1)  {finishe
                     Log.d("Countdown", i.toString())
 
                         while (paused);
