@@ -9,6 +9,7 @@ import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
 
@@ -55,6 +56,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.pauseButton -> if(isConnected) timerBinder.pause()
+            R.id.startButton -> if(isConnected) timerBinder.start(10)
+            R.id.stopButton -> if(isConnected) timerBinder.stop()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 }
