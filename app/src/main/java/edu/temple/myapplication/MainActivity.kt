@@ -16,10 +16,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var timerBinder : TimerService.TimerBinder
     var isConnected = false
 
-    val timerHandler = Handler(Looper.getMainLooper()){
-        timeView.text = it.what.toString()
-        true
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         val serviceConnection = object : ServiceConnection {
             override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
                 timerBinder = service as TimerService.TimerBinder
-                timerBinder.setHandler(timerHandler)
                 isConnected = true
             }
 
